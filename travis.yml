@@ -1,0 +1,36 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+- '7.5'
+env:
+  global:
+    - GITHUB_ORG="https://GH_TOKEN@github.com/vcorr/wordgame"
+    - GITHUB_NAME="vcorr"
+    - GITHUB_EMAIL="v.j.corr@gmail.com"
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+      - google-chrome-beta
+
+before_install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+
+script:
+- npm install --silent
+- ng build --prod --progress=false
+
+deploy:
+  provider: pages
+  local_dir: dist
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
