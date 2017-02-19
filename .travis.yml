@@ -25,7 +25,7 @@ before_install:
 
 script:
 - npm install --silent
-- ng build --prod --progress=false --base-href=wordgame
+- ng build --prod --aot --progress=false --base-href=wordgame
 
 deploy:
   provider: pages
