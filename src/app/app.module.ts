@@ -4,6 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {WordcardsModule} from "./wordcards/wordcards.module";
+import {AppRoutingModule} from "./app-routing.module";
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -12,7 +20,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    WordcardsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
