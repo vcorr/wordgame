@@ -25,6 +25,7 @@ before_install:
 
 script:
 - npm install --silent
+- ng test --watch=false
 - ng build --prod --aot --progress=false --base-href=wordgame
 
 deploy:
