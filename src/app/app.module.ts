@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {WordcardsModule} from "./wordcards/wordcards.module";
 import {AppRoutingModule} from "./app-routing.module";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -20,6 +21,7 @@ import {AppRoutingModule} from "./app-routing.module";
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule,
     HttpModule,
     WordcardsModule,
     AppRoutingModule
