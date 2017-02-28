@@ -7,11 +7,19 @@ import { AppComponent } from './app.component';
 import {WordcardsModule} from "./wordcards/wordcards.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
+import {AngularFireModule} from "angularfire2";
 
 
 
 
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyCReY_rKhGzvKmWLyLApXcPJML3iebiMls",
+  authDomain: "wordgame-c795b.firebaseapp.com",
+  databaseURL: "https://wordgame-c795b.firebaseio.com",
+  storageBucket: "wordgame-c795b.appspot.com",
+  messagingSenderId: "1049197851907"
+};
 
 
 @NgModule({
@@ -20,11 +28,13 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     RouterModule,
     HttpModule,
     WordcardsModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
