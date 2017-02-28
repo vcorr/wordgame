@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {WordcardService} from "./wordcard.service";
+import {Observable} from "rxjs";
+import {Wordcard} from "./wordcard.model";
 
 @Component({
   moduleId: ''+module.id,
@@ -8,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WordCardListComponent implements OnInit {
 
-  constructor() { }
+  cards:Observable<Wordcard[]>;
+  constructor(private wordcardService:WordcardService) { }
 
   ngOnInit() {
+    this.cards = this.wordcardService.getCards();
+
   }
 
 }

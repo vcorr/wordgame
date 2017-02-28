@@ -28,16 +28,16 @@ describe('WordcardService', () => {
     });
   });
 
-  describe('getCard', ()=> {
-    it('should return the card with the id in the query', () =>{
-      fakeAf2db.object.and.returnValue(Observable.of(wordcards[1]));
-      let resultCard: Observable<Wordcard> = wordcardService.getCard("1");
-      expect(fakeAf2db.object).toHaveBeenCalledTimes(1);
-      expect(resultCard).toBeTruthy();
-      resultCard.subscribe(card => {
-        expect(card).toEqual(wordcards[1]);
-      });
-    });
-  })
+  // describe('getCard', ()=> {
+  //   xit('should return the card with the id in the query', () =>{
+  //     fakeAf2db.object.and.returnValue(Observable.of(wordcards[1]));
+  //     let resultCard: Observable<Wordcard> = wordcardService.getCard("1");
+  //     expect(fakeAf2db.object).toHaveBeenCalledTimes(1);
+  //     expect(resultCard).toBeTruthy();
+  //     resultCard.subscribe(card => {
+  //       expect(card).toEqual(wordcards[1]);
+  //     });
+  //   });
+  // })
 
 });
