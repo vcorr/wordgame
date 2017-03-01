@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import {WordcardsModule} from "./wordcards/wordcards.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
+import {StoreModule} from "@ngrx/store";
+import {reducer as wordcardReducer} from './wordcards/wordcard.reducer';
+import {EffectsModule} from "@ngrx/effects";
+import {WordcardEffects} from "./wordcards/wordcard.effects";
 import {AngularFireModule} from "angularfire2";
 
 
@@ -34,7 +38,10 @@ export const firebaseConfig = {
     HttpModule,
     WordcardsModule,
     AppRoutingModule,
-
+    StoreModule.provideStore({
+      wordcards: wordcardReducer
+    }),
+     EffectsModule.run(WordcardEffects)
   ],
   providers: [],
   bootstrap: [AppComponent]
