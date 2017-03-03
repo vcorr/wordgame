@@ -1,31 +1,53 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {WordCardListComponent} from "./wordcard-list.component";
-import {WordcardService} from "./wordcard.service";
 import {Observable} from "rxjs";
-
+import {Store} from "@ngrx/store";
+import {Wordcard} from "./wordcard.model";
 
 describe('WordCardListComponent', () => {
   let component: WordCardListComponent;
   let fixture: ComponentFixture<WordCardListComponent>;
-  let fakeService = jasmine.createSpyObj('fakeAf2db', ['getCards', 'object']);
+
+  let fakeStore = jasmine.createSpyObj('fakeStore', ['select', 'dispatch']);
+  let de = null;
+  let element = null;
+
 
   beforeEach(async(() => {
-
-    fakeService.getCards.and.returnValue(Observable.of(null));
     TestBed.configureTestingModule({
       declarations: [ WordCardListComponent ],
-      providers: [{provide: WordcardService, useValue: fakeService}]
+      providers: [{provide: Store, useValue: fakeStore}]
     })
-    .compileComponents();
   }));
 
   beforeEach(() => {
+    fakeStore.select.and.returnValue(Observable.from([]));
     fixture = TestBed.createComponent(WordCardListComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
+    component = fixture.componentInstance;
+    de = fixture.debugElement;
   });
 
-  it('should create the component', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should list the wordcards', async(() => {
+    fixture.detectChanges();
+    let wordcards: Wordcard[] = [
+      {id: '1', word: 'word1', image: 'img1'},
+      {id: '2', word: 'word2', image: 'img2'},
+      {id: '3', word: 'word3', image: 'img3'}
+    ];
+
+    fixture.componentInstance.cards = Observable.of(wordcards);
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      element = fixture.debugElement.nativeElement;
+      console.log(element.textContent);
+      expect(fakeStore.dispatch).toHaveBeenCalledTimes(1);
+      expect(fakeStore.select).toHaveBeenCalledTimes(1);
+
+      //TODO: to be enhanced when ui is in place
+
+      expect(element.textContent).toContain('word3');
+
+    });
+  }));
 });
