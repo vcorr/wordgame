@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+.wordcardlist {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.wordcard {
+  width: 240px;
+  margin: 10px;
+  background-color: #000088;
+}
+
+.mat-card-image {
+  margin-bottom: 0 !important;
+}

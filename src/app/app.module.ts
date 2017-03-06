@@ -1,20 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
-import { AppComponent } from './app.component';
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
+import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
+import {AppComponent} from "./app.component";
 import {WordcardsModule} from "./wordcards/wordcards.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
 import {StoreModule} from "@ngrx/store";
-import {reducer as wordcardReducer} from './wordcards/wordcard.reducer';
+import {reducer as wordcardReducer} from "./wordcards/wordcard.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {WordcardEffects} from "./wordcards/wordcard.effects";
 import {AngularFireModule} from "angularfire2";
-
-
-
+import {MaterialModule} from "@angular/material";
+import "hammerjs";
 
 
 export const firebaseConfig = {
@@ -32,6 +30,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    MaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     RouterModule,
