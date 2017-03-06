@@ -7,8 +7,7 @@ import {loadWordCards} from "./wordcard.actions";
 @Component({
   moduleId: '' + module.id,
   selector: 'wordcardlist',
-  templateUrl: 'wordcard-list.component.html',
-  styleUrls: ['wordcard-list.component.css']
+  templateUrl: 'wordcard-list.component.html'
 })
 export class WordCardListComponent implements OnInit {
 
@@ -19,7 +18,6 @@ export class WordCardListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadWordCards());
-    console.log("dispatched loadcards!");
     this.cards = this.store.select('wordcards')
       .map((state: any) => state.wordcards);
   }

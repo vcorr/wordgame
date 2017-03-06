@@ -1,15 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {WordcardsComponent} from "./wordcards.component";
+import {NgModule} from "@angular/core";
+import {Routes, RouterModule} from "@angular/router";
 import {WordCardListComponent} from "./wordcard-list.component";
 
 const routes: Routes = [
   {
-    path:'wordcards',
-    component: WordcardsComponent,
-    children: [
-      {path:'', component: WordCardListComponent}
-    ]
+    path: 'wordcards',
+    component: WordCardListComponent
   }
 ];
 
@@ -18,4 +14,5 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class WordcardsRoutingModule { }
+export class WordcardsRoutingModule {
+}

@@ -3,6 +3,8 @@ import {WordCardListComponent} from "./wordcard-list.component";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {Wordcard} from "./wordcard.model";
+import {WordcardComponent} from "./wordcard.component";
+import {MaterialModule} from "@angular/material";
 
 describe('WordCardListComponent', () => {
   let component: WordCardListComponent;
@@ -15,7 +17,8 @@ describe('WordCardListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WordCardListComponent ],
+      imports: [MaterialModule],
+      declarations: [WordCardListComponent, WordcardComponent],
       providers: [{provide: Store, useValue: fakeStore}]
     })
   }));
@@ -46,7 +49,7 @@ describe('WordCardListComponent', () => {
 
       //TODO: to be enhanced when ui is in place
 
-      expect(element.textContent).toContain('word3');
+      expect(element.textContent).toContain('Solve');
 
     });
   }));
