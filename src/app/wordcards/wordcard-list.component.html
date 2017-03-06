@@ -1,4 +1,3 @@
-<p>
-  word-card-list works!
-</p>
-<pre>{{cards | async | json}}</pre>
+<div class="wordcardlist">
+  <wordcard *ngFor="let wordcard of cards | async" [wordcard]="wordcard"></wordcard>
+</div>
