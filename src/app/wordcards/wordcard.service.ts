@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {Wordcard} from "./wordcard.model";
-import {AngularFireDatabase} from "angularfire2";
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @Injectable()
 export class WordcardService {

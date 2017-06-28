@@ -13,6 +13,7 @@ import {WordcardEffects} from "./wordcards/wordcard.effects";
 import {AngularFireModule} from "angularfire2";
 import {MaterialModule} from "@angular/material";
 import "hammerjs";
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 
 export const firebaseConfig = {
@@ -32,6 +33,7 @@ export const firebaseConfig = {
     BrowserModule,
     MaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     FormsModule,
     RouterModule,
     HttpModule,
