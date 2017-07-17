@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {WordCardListComponent} from './wordcards/wordcard-list.component';
 
 const routes: Routes = [
-      {path:'', pathMatch:'full', redirectTo: '/wordcards'},
+      {path:'', pathMatch:'full', component: WordCardListComponent},
 ];
 
 @NgModule({

@@ -4,7 +4,7 @@ import {WordCardListComponent} from "./wordcard-list.component";
 
 const routes: Routes = [
   {
-    path: 'wordcards',
+    path: '',
     component: WordCardListComponent
   }
 ];
