@@ -1,18 +1,19 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {WordcardsRoutingModule} from "./wordcards-routing.module";
-import {WordcardComponent} from "./wordcard.component";
-import {WordCardListComponent} from "./wordcard-list.component";
-import {WordcardService} from "./wordcard.service";
-import {MaterialModule} from "@angular/material";
+import {WordCardListComponent} from "./wordcardlist/wordcard-list.component";
+import {WordcardService} from "./model/wordcard.service";
+import {MdButtonModule, MdCardModule} from "@angular/material";
+import {WordcardListItemComponent} from './wordcardlist/wordcard.listitem.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
-    WordcardsRoutingModule
+    WordcardsRoutingModule,
+    MdCardModule,
+    MdButtonModule
   ],
-  declarations: [WordcardComponent, WordCardListComponent],
+  declarations: [WordcardListItemComponent, WordCardListComponent],
   providers: [WordcardService]
 })
 export class WordcardsModule { }

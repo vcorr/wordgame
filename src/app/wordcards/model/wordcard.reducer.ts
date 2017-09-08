@@ -1,5 +1,5 @@
-import {Action} from "@ngrx/store";
-import {ActionTypes} from "./wordcard.actions";
+import {Action, createFeatureSelector, createSelector} from "@ngrx/store";
+import {ActionTypes, ActionWithPayload} from "./wordcard.actions";
 import {Wordcard} from "./wordcard.model";
 
 interface State {
@@ -12,7 +12,7 @@ const initialState: State = {
   wordcards: []
 };
 
-export function reducer(state: State = initialState, action: Action) {
+export function reducer(state: State = initialState, action: ActionWithPayload<any>) {
   switch (action.type) {
     case ActionTypes.LOAD: {
       return {
@@ -27,7 +27,15 @@ export function reducer(state: State = initialState, action: Action) {
       };
     }
     default: {
+      console.log("unknown action type");
+      console.log(action.type);
       return state;
     }
   }
 }
+export const wordCardsState = createFeatureSelector('wordcards');
+
+export const getWordCards = createSelector(
+  wordCardsState,
+  (state: State) => state.wordcards
+);

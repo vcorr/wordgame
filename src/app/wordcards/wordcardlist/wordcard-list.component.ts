@@ -1,9 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {Observable} from "rxjs";
-import {Wordcard} from "./wordcard.model";
+import {Wordcard} from "../model/wordcard.model";
 import {Store} from "@ngrx/store";
-import {loadWordCards} from "./wordcard.actions";
+import {loadWordCards} from "../model/wordcard.actions";
 import {Meta, Title} from '@angular/platform-browser';
+import * as wordCards from '../model/wordcard.reducer';
 
 @Component({
   moduleId: '' + module.id,
@@ -25,8 +26,10 @@ export class WordCardListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadWordCards());
-    this.cards = this.store.select('wordcards')
-      .map((state: any) => state.wordcards);
+    this.cards = this.store.select(wordCards.getWordCards)
+      .map((wordcards: any) => {
+      return wordcards
+      });
   }
 
 }

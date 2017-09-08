@@ -7,13 +7,14 @@ import {WordcardsModule} from "./wordcards/wordcards.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
 import {StoreModule} from "@ngrx/store";
-import {reducer as wordcardReducer} from "./wordcards/wordcard.reducer";
+import {reducer as wordcardReducer} from "./wordcards/model/wordcard.reducer";
 import {EffectsModule} from "@ngrx/effects";
-import {WordcardEffects} from "./wordcards/wordcard.effects";
+import {WordcardEffects} from "./wordcards/model/wordcard.effects";
 import {AngularFireModule} from "angularfire2";
-import {MaterialModule} from "@angular/material";
 import "hammerjs";
 import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdToolbar, MdToolbarModule} from '@angular/material';
 
 
 export const firebaseConfig = {
@@ -31,7 +32,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    MaterialModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     FormsModule,
@@ -39,10 +40,11 @@ export const firebaseConfig = {
     HttpModule,
     WordcardsModule,
     AppRoutingModule,
-    StoreModule.provideStore({
+    StoreModule.forRoot({
       wordcards: wordcardReducer
     }),
-     EffectsModule.run(WordcardEffects)
+     EffectsModule.forRoot([WordcardEffects]),
+    MdToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,10 @@
 import {Component, Input} from "@angular/core";
-import {Wordcard} from "./wordcard.model";
+import {Wordcard} from "../model/wordcard.model";
 
 @Component({
   moduleId: '' + module.id,
-  selector: 'wordcard',
-  templateUrl: 'wordcard-component.html',
+  selector: 'wordcard-listitem',
+  templateUrl: 'wordcard-listitem-component.html',
 })
 
 export class WordcardComponent {
@@ -12,5 +12,6 @@ export class WordcardComponent {
 
   constructor() {
   }
+
 }
 

@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
-import {WordCardListComponent} from "./wordcard-list.component";
+import {WordCardListComponent} from "./wordcardlist/wordcard-list.component";
 
 const routes: Routes = [
   {

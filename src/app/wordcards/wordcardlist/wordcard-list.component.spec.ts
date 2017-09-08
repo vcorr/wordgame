@@ -2,9 +2,9 @@ import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 import {WordCardListComponent} from "./wordcard-list.component";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {Wordcard} from "./wordcard.model";
-import {WordcardComponent} from "./wordcard.component";
+import {Wordcard} from "../model/wordcard.model";
 import {MaterialModule} from "@angular/material";
+import {WordcardListItemComponent} from './wordcard.listitem.component';
 
 describe('WordCardListComponent', () => {
   let component: WordCardListComponent;
@@ -18,7 +18,7 @@ describe('WordCardListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [MaterialModule],
-      declarations: [WordCardListComponent, WordcardComponent],
+      declarations: [WordCardListComponent, WordcardListItemComponent],
       providers: [{provide: Store, useValue: fakeStore}]
     })
   }));
