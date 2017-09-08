@@ -27,7 +27,6 @@ script:
 - npm install -g codecov
 - npm install coveralls
 - npm install --silent
-- ng test --watch=false --code-coverage
 - ng build --prod --aot --progress=false --base-href=.
 - codecov
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
